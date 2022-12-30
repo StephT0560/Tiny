@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block info %}
+<style>
+    label, input {
+        display: block;
+    }
+</style>
+<div class ="column">
+    <div class="hero is-fullheight">
+        <div class="hero-body is-justify-content-center is-align-items-center">
+            <div class="columns is-flex is-flex-direction-column box">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="column">
+                            {{ field.errors }}
+                            {{ field.label_tag }}{{ field }} 
+                        </div>
+                    {% endfor %}
+                    <div class ="has-text-centered">
+                        <a href="#" class="is-size-7 has-text-primary">forget password?</a>
+                    </div>
+                    <div class="column">
+                        <button class="button is-primary is-fullwidth" type="submit">Login</button>
+                    </div>
+                </form>
+                <div class="has-text-centered">
+                    <p class="is-size-7"> Don't have an account? <a href="{% url 'dwitter:register' %}" class="has-text-primary">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock info%}
