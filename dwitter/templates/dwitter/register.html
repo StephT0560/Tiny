@@ -4,12 +4,14 @@
 <style>
     label, input {
         display: block;
+        width: 100%
     }
 </style>
 <div class ="column">
     <div class="hero is-fullheight">
         <div class="hero-body is-justify-content-center is-align-items-center">
             <div class="columns is-flex is-flex-direction-column box">
+                <h1 class="title is-2" style="display:inline">Let's Get Started </h1>
                 <form method="post">
                     {% csrf_token %}
                     {% for field in form %}
